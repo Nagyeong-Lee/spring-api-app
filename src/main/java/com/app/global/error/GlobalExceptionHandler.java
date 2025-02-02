@@ -25,6 +25,7 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(errorResponse);
     }
+
     /**
      * @RequestParam enum으로 binding 못했을 경우 발생
      */
@@ -41,7 +42,7 @@ public class GlobalExceptionHandler {
      * 지원하지 않는 Http Method 호출 시 오류 발생
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    public ResponseEntity<ErrorResponse> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+    protected ResponseEntity<ErrorResponse> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         log.error("### HttpRequestMethodNotSupportedException ### ", e);
         ErrorResponse errorResponse = ErrorResponse.of(HttpStatus.METHOD_NOT_ALLOWED.toString(), e.getMessage());
         return ResponseEntity
@@ -53,7 +54,7 @@ public class GlobalExceptionHandler {
      * 비즈니스 로직 실행 중 오류 발생
      */
     @ExceptionHandler(value = {BusinessException.class})
-    public ResponseEntity<ErrorResponse> handleBusinessException(BusinessException e) {
+    protected ResponseEntity<ErrorResponse> handleBusinessException(BusinessException e) {
         log.error("### BusinessException ### ", e);
         ErrorCode errorCode = e.getErrorCode();
         ErrorResponse errorResponse = ErrorResponse.of(errorCode.getErrorCode(), errorCode.getMessage());
@@ -66,7 +67,7 @@ public class GlobalExceptionHandler {
      * 나머지 예외 발생
      */
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception e) {
+    protected ResponseEntity<ErrorResponse> handleException(Exception e) {
         log.error("### Exception ### ", e);
         ErrorResponse errorResponse = ErrorResponse.of(HttpStatus.INTERNAL_SERVER_ERROR.toString(), e.getMessage());
         return ResponseEntity
