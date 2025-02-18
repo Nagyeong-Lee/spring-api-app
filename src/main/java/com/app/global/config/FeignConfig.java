@@ -26,6 +26,7 @@ public class FeignConfig {
         return new FeignClientExceptionErrorDecoder();
     }
 
+    //1000ms(1초)부터 시작해서 최대 5000ms(5초)까지, 총 3번 재시도
     @Bean
     public Retryer retryer() {
         return new Retryer.Default(1000, 5000, 3);
