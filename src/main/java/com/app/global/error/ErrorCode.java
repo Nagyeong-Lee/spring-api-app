@@ -9,7 +9,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
 
     TEST(HttpStatus.INTERNAL_SERVER_ERROR, "001", "BUSINESS EXCEPTION TEST"),
-    ACCESS_TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "401", "만료된 access token 입니다.")
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "A-001", "유효하지 않은 토큰입니다."),
+    EXPIRED_TOKEN(HttpStatus.UNAUTHORIZED, "A-001", "만료된 토큰입니다.")
     ;
 
     private final HttpStatus httpStatus;
