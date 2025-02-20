@@ -1,4 +1,4 @@
-package com.app.api.exception_test.dto;
+package com.app.api.exception.dto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.app.api.openfeign_test.client;
+package com.app.api.openfeign.client;
 
 import com.app.api.health.dto.HealthCheckResponseDto;
 import org.springframework.cloud.openfeign.FeignClient;

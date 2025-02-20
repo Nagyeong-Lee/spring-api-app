@@ -1,7 +1,7 @@
-package com.app.api.openfeign_test.controller;
+package com.app.api.openfeign.controller;
 
 import com.app.api.health.dto.HealthCheckResponseDto;
-import com.app.api.openfeign_test.client.HelloClient;
+import com.app.api.openfeign.client.HelloClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
