@@ -20,7 +20,6 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class TokenManager {
 
-    //    토큰 생성, 검증
     private final String accessTokenExpirationTime;
     private final String refreshTokenExpirationTime;
     private final String secretKey;
